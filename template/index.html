@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div class="wrapper">
+		<div class="main-block">
+			<div class="info-wrapper">
+				<div class="info">
+					<h1 class="info__header">Ипотека или аренда?</h1>
+					<hr class="info__hr">
+					<p class="info__description">Проснувшись однажды утром после беспокойного сна, Грегор Замза обнаружил, что он у себя в постели превратился в страшное насекомое.</p>
+					<p class="info__description">Лежа на панцирнотвердой спине, он видел, стоило ему приподнять голову, свой коричневый, выпуклый, разделенный дугообразными чешуйками живот, на верхушке которого еле держалось готовое вот-вот окончательно сползти одеяло.</p>
+					<div class="info__social">
+						<div class="person">
+							<img class="person__photo" src="img/photo.jpg"></img>
+							<p class="person__name">Георгий Носков</p>
+						</div>
+					</div>
+				</div>		
+			</div>
+			<form class="form">
+				<h2 class="form__header">Давайте посчитаем</h2>
+				<hr class="form__hr">
+				<div class="form__group"> 
+					<div class="form__inline">
+						<label class="form__label">Интересует: </label>
+						<input type="radio" name="rooms" checked="true">
+						<label class="form__label-radio">1-к</label>
+						<input type="radio" name="rooms">
+						<label class="form__label-radio">2-к</label>
+						<input type="radio" name="rooms">
+						<label class="form__label-radio">3-к</label>
+						<label class="form__label">квартира</label>
+					</div>
+				</div>
+				<div class="form__group"> 
+					<div class="form__inline">
+						<label class="form__label">Тип: </label>
+						<input type="radio" name="new" checked="true">
+						<label class="form__label-radio">Вторичка</label>
+						<input type="radio" name="new" checked="true">
+						<label class="form__label-radio">Новостройка</label>
+					</div>
+				</div>
+				<div class="form__group">
+					<label class="form__label">В городе</label>
+					<select class="form__select">
+						<option>Москва</option>
+						<option>Ростов-на-Дону</option>
+						<option>Санкт-Петербург</option>
+					</select>
+				</div>
+<!-- 				<div class="form__group"> 
+					<label class="form__label">Сумма накоплений</label>
+					<input type="text" class="form__text" placeholder="100000 ₽">
+				</div> -->
+<!-- 				<div class="form__group"> 
+				</div> -->
+				<div class="form__group"> 
+					<label class="form__label">Процент ипотеки</label>
+					<input type="text" class="form__text" placeholder="10 %">
+				</div>
+				<div class="form__group"> 
+					<label class="form__label">Накоплено</label>
+					<input type="text" class="form__text" placeholder="1 000 000 ₽">
+				</div>
+				<div class="form__group">
+					<div class="form__inline">
+						<input type="checkbox" name="">
+						<label class="form__label-checkbox">Наличие собственного жилья</label>
+					</div>
+				</div>
+				<hr class="form__hr">
+
+				<span class="form__button">Посчитать</span>
+
+
+			</form>
+		</div>
+	</div>
+</body>
+</html>
