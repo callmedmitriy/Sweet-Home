@@ -271,12 +271,22 @@ select:focus {
 			color: 222;
 			padding: 10px 0;
 		}
+		.description-ul,
 		.description-p {
 			margin-bottom: 10px;
 			
 			color: #222;
 
 			line-height: 145%;
+		}
+		.description-a {
+			color: #00D183;
+		}
+		.description-a:hover {
+			text-decoration: underline;
+		}
+		.description-ul {
+			padding-left: 15px;
 		}
 		.results__info-small {
 			padding: 0 15px 10px;
@@ -346,6 +356,12 @@ select:focus {
 		padding: 5px 10px;
 		color: #222
 	}
+	.result__small {
+		text-align: right;
+		padding: 5px 10px;
+		color: #666;
+		font-size: 0.75rem;
+	}
 
 	.result__hr {
 		height: 0;
@@ -373,8 +389,76 @@ select:focus {
 		transition: .3s ease;
 	}
 
+
 /*
-	
+	full table
+*/
+	.table-block {
+		box-shadow: 0px 0px 15px 5px rgba(0,0,0,.2);
+		border-radius: 10px;
+		background-color: #00D183;
+		overflow-x: auto;
+	}
+	.table-header {
+		display: block;
+		min-width: calc(100% - 40px);
+		padding: 20px;
+		border-radius: 10px 10px 0 0;
+		color: #fff;
+	}
+	.table-header__h {
+		padding: 5px 0;
+		font-size: 1.2rem;
+	}
+	.table-header__p {
+		padding: 5px 0;
+		font-size: 0.9rem;
+	}
+	.table-result {
+		padding: 10px;
+		width: 100%;
+		background: #fff;
+		
+	}
+
+	.table-result tr {
+		text-align: center;
+	}
+	.table-result th {
+
+		padding: 5px;
+		border-radius: 3px;
+		color: #fff;
+		background-color: #00D183;
+	}
+	.table-result td {
+		padding: 10px 5px;
+		border-bottom: 1px dashed #00D183;
+
+	}
+/*
+	button top	
+*/
+	.btn-top {
+		position: fixed;
+		z-index: 50;
+		right: 10px;
+		bottom: 10px;
+		width: 30px;
+		height: 30px;
+		padding: 10px;
+		border: 1px solid #fff;
+		border-radius: 50%;
+		box-shadow: 0px 0px 10px 5px rgba(0,209,131,.4);
+		color: #fff;
+		background-color: #00D183;
+		text-align: center;
+		font-size: 1.9rem;
+		transform: rotate(-90deg);
+		cursor: pointer;
+	}
+/*
+
 */
 
 .green {
@@ -405,5 +489,19 @@ select:focus {
 	}
 	.results__list {
 		justify-content: center;
+	}
+
+
+	.table-block {
+		border-radius: 0;
+	}
+	.table-header {
+		border-radius: 0;	
+	}
+	.table-result {
+		font-size: 0.8rem;
+	}
+	.table-result th {
+		min-width: 80px;
 	}
 }
