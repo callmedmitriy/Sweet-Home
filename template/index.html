@@ -28,13 +28,13 @@
 				<div class="form__group"> 
 					<div class="form__inline">
 						<label class="form__label">Интересует: </label>
-						<input type="radio" name="rooms" checked="true">
-						<label class="form__label-radio">1-к</label>
-						<input type="radio" name="rooms">
-						<label class="form__label-radio">2-к</label>
-						<input type="radio" name="rooms">
-						<label class="form__label-radio">3-к</label>
-						<label class="form__label">квартира</label>
+						<input type="radio" name="rooms" checked id="oneRoom"/>
+						<label class="form__label-radio" for="oneRoom">1-к</label>
+						<input type="radio" name="rooms" id="twoRooms"/>
+						<label class="form__label-radio" for="twoRooms">2-к</label>
+						<input type="radio" name="rooms" id="threeRooms"/>
+						<label class="form__label-radio" for="threeRooms">3-к</label>
+						<label class="form__label" for="three">квартира</label>
 					</div>
 				</div>
 				<div class="form__group"> 
@@ -79,124 +79,122 @@
 				<span class="form__button">Посчитать</span>
 			</form>
 		</div>
-		<div class="results-block">
-			<div class="results">
-				<h3 class="results__header">Кратко обрисуем</h3>
-				<div class="results__desc">
-					<div class="results__wrapper">
-						<div class="description">
-							<h3 class="description-h">Как считаем</h3>
-							<p class="description-p">Отталкиваться мы будем от ежемесячного платежа, полученного по <a class="description-a" href="#">аннуитетной</a> системе, т.к. это самый распространенный вид ипотечного кредитования. К сравнению были добавлены <a class="description-a" href="#">диффиренцированная</a> система платежей и, основное, накопление через депозит (вклад средств на счет под проценты) в банке. Под накоплением подразумевается внесение на счет суммы, которая готовилась для ипотеки в виде первого взноса, с ежемесячным внесением средств ранее посчитанного платежа по ипотеке (по аннуитету) минус стоимость съема квартиры. Депозит считается по ежемесячной капитализации, чтобы начисленные проценты и довносимая сумма сразу учитывалась при дальнейшем рассчете процентов.</p>
-							<!-- <h3 class="description-h">Основная идея</h3>
-							<p class="description-p">Происходит сравнение нескольких вариантов покупок квартиры с учетом всех возможных нюансов, чтобы была возможность сравнить, в какой срок и при каких действиях наиболее быстро/с меньшими затратами можно обзавестись жильем. Рассчет может и не точный до копейки, но я постарался его максимально приблизить.</p> -->
-							<h3 class="description-h">Что было учтено (средние значения)</h3>
-							<ul class="description-ul">
-								<li>Стоимость жилья по выбранному городу;</li>
-								<li>Процент ипотеки (Если не был указан в форме выше);</li>
-								<li>Ставка вклада (депозита) с ежемесячной капитализацией;</li>
-								<li>Стоимость аренды (при отсутствии собственного жилья);</li>
-								<li>Смена арендуемой квартиры раз в два года (доп. сумма на агента/взнос);</li>
-								<li>Ремонт квартиры (при покупке новостройки);</li>
-								<li>Повышение стоиомсти аренды и жилья с течением времени;</li>
-								<li>Налоговый вычет 13% (при первой покупке жилья);</li>
-								<li>Возможность сдачи квартиры (при наличии собственного жилья и ипотеки);</li>
-							</ul>
-							<p class="description-p"></p>
-							<p class="description-p"></p>
-							<h3 class="description-h">Статистика</h3>
-							<p class="description-p">Мы собираем средние данные с разных интернет-источников, таких как банки ру (проценты ипотек и вкладов), домофонд (статистика стоимости жилья), ещеодинсайт (динамика изменения стоимости недвижимости, а также инфляция).
-						</div>
-						<p class="results__info-small">Также вы имеете возможность посмотреть полную таблицу платежей/вкладов за каждый месяц нажав на кнопку "Подробнее"</p>
+		<div class="description-block">
+			<h3 class="description-block__header">Кратко обрисуем</h3>
+			<div class="description-block__desc">
+				<div class="description-block__wrapper">
+					<div class="description">
+						<h3 class="description-h">Как считаем</h3>
+						<p class="description-p">Отталкиваться мы будем от ежемесячного платежа, полученного по <a class="description-a" href="#">аннуитетной</a> системе, т.к. это самый распространенный вид ипотечного кредитования. К сравнению были добавлены <a class="description-a" href="#">диффиренцированная</a> система платежей и, основное, накопление через депозит (вклад средств на счет под проценты) в банке. Под накоплением подразумевается внесение на счет суммы, которая готовилась для ипотеки в виде первого взноса, с ежемесячным внесением средств ранее посчитанного платежа по ипотеке (по аннуитету) минус стоимость съема квартиры. Депозит считается по ежемесячной капитализации, чтобы начисленные проценты и довносимая сумма сразу учитывалась при дальнейшем рассчете процентов.</p>
+						<!-- <h3 class="description-h">Основная идея</h3>
+						<p class="description-p">Происходит сравнение нескольких вариантов покупок квартиры с учетом всех возможных нюансов, чтобы была возможность сравнить, в какой срок и при каких действиях наиболее быстро/с меньшими затратами можно обзавестись жильем. Рассчет может и не точный до копейки, но я постарался его максимально приблизить.</p> -->
+						<h3 class="description-h">Что было учтено (средние значения)</h3>
+						<ul class="description-ul">
+							<li>Стоимость жилья по выбранному городу;</li>
+							<li>Процент ипотеки (Если не был указан в форме выше);</li>
+							<li>Ставка вклада (депозита) с ежемесячной капитализацией;</li>
+							<li>Стоимость аренды (при отсутствии собственного жилья);</li>
+							<li>Смена арендуемой квартиры раз в два года (доп. сумма на агента/взнос);</li>
+							<li>Ремонт квартиры (при покупке новостройки);</li>
+							<li>Повышение стоиомсти аренды и жилья с течением времени;</li>
+							<li>Налоговый вычет 13% (при первой покупке жилья);</li>
+							<li>Возможность сдачи квартиры (при наличии собственного жилья и ипотеки);</li>
+						</ul>
+						<p class="description-p"></p>
+						<p class="description-p"></p>
+						<h3 class="description-h">Статистика</h3>
+						<p class="description-p">Мы собираем средние данные с разных интернет-источников, таких как банки ру (проценты ипотек и вкладов), домофонд (статистика стоимости жилья), ещеодинсайт (динамика изменения стоимости недвижимости, а также инфляция).
 					</div>
-					<div class="results__statistic">
-						<hr class="results__statistic-hr">
-						<p class="results__statistic-p">Стоимость новой 2-к квартиры в городе Москва: 12 940 485 Р</p>
-						<p class="results__statistic-p">Процент ипотеки: 10%</p>
-						<p class="results__statistic-p">Процент вклада: 8%</p>
-						<p class="results__statistic-p">Аренда квартиры: 15 000 Р</p>
-						<p class="results__statistic-p">Ремонт: 1 040 000 Р</p>
-						<p class="results__statistic-p">Капитализация вклада: Ежемесячная</p>
-						<p class="results__statistic-p">Инфляция: 10%</p>
-						<p class="results__statistic-p">Налоговый вычет: 2 139 123 Р</p>
-					</div>
+					<p class="description-block__small">Также вы имеете возможность посмотреть полную таблицу платежей/вкладов за каждый месяц нажав на кнопку "Подробнее"</p>
+				</div>
+				<div class="common-data">
+					<hr class="common-data__hr">
+					<p class="common-data__p">Стоимость новой 2-к квартиры в городе Москва: 12 940 485 Р</p>
+					<p class="common-data__p">Процент ипотеки: 10%</p>
+					<p class="common-data__p">Процент вклада: 8%</p>
+					<p class="common-data__p">Аренда квартиры: 15 000 Р</p>
+					<p class="common-data__p">Ремонт: 1 040 000 Р</p>
+					<p class="common-data__p">Капитализация вклада: Ежемесячная</p>
+					<p class="common-data__p">Инфляция: 10%</p>
+					<p class="common-data__p">Налоговый вычет: 2 139 123 Р</p>
 				</div>
 			</div>
-			<div class="results__list">
-				<div class="result">
-					<div class="result__top"> 
-						<p class="result__top-p">Срок: 5 лет</p>
-						<p class="result__top-p">Первый взнос: 1 000 000 Р (15%)</p>
-						<p class="result__top-p">Ежемесячный платеж: 75 000 Р</p>
-					</div>
-					<p class="result__text">Сумма по аннуитету:</p>
-					<p class="result__number">1 098 909 Р</p>
-					<p class="result__small">Переплата: 1 098 909 Р</p>
-					<p class="result__text">С учетом сдачи потрачено:</p>
-					<p class="result__number">1 098 909 Р</p>
-					<hr class="result__hr">
-					<p class="result__text">Сумма по диф-му платежу:</p>
-					<p class="result__number">1 098 909 Р</p>
-					<p class="result__small">Переплата: 1 098 909 Р</p>
-					<p class="result__text">С учетом сдачи потрачено:</p>
-					<p class="result__number">1 098 909 Р</p>
-					<hr class="result__hr">
-					<p class="result__text">На депозите к концу срока:</p>
-					<p class="result__number">1 098 909 Р</p>
-					<p class="result__small">На жилье накоплено за: 52 месяца</p>
-					<p class="result__small">Ежемесячный доход с суммы: 360 454 Р</p>
-					<hr class="result__hr">
-					<p class="result__button">Подробнее</p>
+		</div>
+		<div class="results-block">
+			<div class="result">
+				<div class="result__top"> 
+					<p class="result__top-p">Срок: 5 лет</p>
+					<p class="result__top-p">Первый взнос: 1 000 000 Р (15%)</p>
+					<p class="result__top-p">Ежемесячный платеж: 75 000 Р</p>
 				</div>
-				<div class="result">
-					<div class="result__top"> 
-						<p class="result__top-p">Срок: 5 лет</p>
-						<p class="result__top-p">Первый взнос: 1 000 000 Р (15%)</p>
-						<p class="result__top-p">Ежемесячный платеж: 75 000 Р</p>
-					</div>
-					<p class="result__text">Сумма по аннуитету:</p>
-					<p class="result__number">1 098 909 Р</p>
-					<p class="result__small">Переплата: 1 098 909 Р</p>
-					<p class="result__text">С учетом сдачи потрачено:</p>
-					<p class="result__number">1 098 909 Р</p>
-					<hr class="result__hr">
-					<p class="result__text">Сумма по диф-му платежу:</p>
-					<p class="result__number">1 098 909 Р</p>
-					<p class="result__small">Переплата: 1 098 909 Р</p>
-					<p class="result__text">С учетом сдачи потрачено:</p>
-					<p class="result__number">1 098 909 Р</p>
-					<hr class="result__hr">
-					<p class="result__text">На депозите к концу срока:</p>
-					<p class="result__number">1 098 909 Р</p>
-					<p class="result__small">На жилье накоплено за: 52 месяца</p>
-					<p class="result__small">Ежемесячный доход с суммы: 360 454 Р</p>
-					<hr class="result__hr">
-					<p class="result__button">Подробнее</p>
+				<p class="result__text">Сумма по аннуитету:</p>
+				<p class="result__number">1 098 909 Р</p>
+				<p class="result__small">Переплата: 1 098 909 Р</p>
+				<p class="result__text">С учетом сдачи потрачено:</p>
+				<p class="result__number">1 098 909 Р</p>
+				<hr class="result__hr">
+				<p class="result__text">Сумма по диф-му платежу:</p>
+				<p class="result__number">1 098 909 Р</p>
+				<p class="result__small">Переплата: 1 098 909 Р</p>
+				<p class="result__text">С учетом сдачи потрачено:</p>
+				<p class="result__number">1 098 909 Р</p>
+				<hr class="result__hr">
+				<p class="result__text">На депозите к концу срока:</p>
+				<p class="result__number">1 098 909 Р</p>
+				<p class="result__small">На жилье накоплено за: 52 месяца</p>
+				<p class="result__small">Ежемесячный доход с суммы: 360 454 Р</p>
+				<hr class="result__hr">
+				<p class="result__button">Подробнее</p>
+			</div>
+			<div class="result">
+				<div class="result__top"> 
+					<p class="result__top-p">Срок: 5 лет</p>
+					<p class="result__top-p">Первый взнос: 1 000 000 Р (15%)</p>
+					<p class="result__top-p">Ежемесячный платеж: 75 000 Р</p>
 				</div>
-				<div class="result">
-					<div class="result__top"> 
-						<p class="result__top-p">Срок: 5 лет</p>
-						<p class="result__top-p">Первый взнос: 1 000 000 Р (15%)</p>
-						<p class="result__top-p">Ежемесячный платеж: 75 000 Р</p>
-					</div>
-					<p class="result__text">Сумма по аннуитету:</p>
-					<p class="result__number">1 098 909 Р</p>
-					<p class="result__small">Переплата: 1 098 909 Р</p>
-					<p class="result__text">С учетом сдачи потрачено:</p>
-					<p class="result__number">1 098 909 Р</p>
-					<hr class="result__hr">
-					<p class="result__text">Сумма по диф-му платежу:</p>
-					<p class="result__number">1 098 909 Р</p>
-					<p class="result__small">Переплата: 1 098 909 Р</p>
-					<p class="result__text">С учетом сдачи потрачено:</p>
-					<p class="result__number">1 098 909 Р</p>
-					<hr class="result__hr">
-					<p class="result__text">На депозите к концу срока:</p>
-					<p class="result__number">1 098 909 Р</p>
-					<p class="result__small">На жилье накоплено за: 52 месяца</p>
-					<p class="result__small">Ежемесячный доход с суммы: 360 454 Р</p>
-					<hr class="result__hr">
-					<p class="result__button">Подробнее</p>
+				<p class="result__text">Сумма по аннуитету:</p>
+				<p class="result__number">1 098 909 Р</p>
+				<p class="result__small">Переплата: 1 098 909 Р</p>
+				<p class="result__text">С учетом сдачи потрачено:</p>
+				<p class="result__number">1 098 909 Р</p>
+				<hr class="result__hr">
+				<p class="result__text">Сумма по диф-му платежу:</p>
+				<p class="result__number">1 098 909 Р</p>
+				<p class="result__small">Переплата: 1 098 909 Р</p>
+				<p class="result__text">С учетом сдачи потрачено:</p>
+				<p class="result__number">1 098 909 Р</p>
+				<hr class="result__hr">
+				<p class="result__text">На депозите к концу срока:</p>
+				<p class="result__number">1 098 909 Р</p>
+				<p class="result__small">На жилье накоплено за: 52 месяца</p>
+				<p class="result__small">Ежемесячный доход с суммы: 360 454 Р</p>
+				<hr class="result__hr">
+				<p class="result__button">Подробнее</p>
+			</div>
+			<div class="result">
+				<div class="result__top"> 
+					<p class="result__top-p">Срок: 5 лет</p>
+					<p class="result__top-p">Первый взнос: 1 000 000 Р (15%)</p>
+					<p class="result__top-p">Ежемесячный платеж: 75 000 Р</p>
 				</div>
+				<p class="result__text">Сумма по аннуитету:</p>
+				<p class="result__number">1 098 909 Р</p>
+				<p class="result__small">Переплата: 1 098 909 Р</p>
+				<p class="result__text">С учетом сдачи потрачено:</p>
+				<p class="result__number">1 098 909 Р</p>
+				<hr class="result__hr">
+				<p class="result__text">Сумма по диф-му платежу:</p>
+				<p class="result__number">1 098 909 Р</p>
+				<p class="result__small">Переплата: 1 098 909 Р</p>
+				<p class="result__text">С учетом сдачи потрачено:</p>
+				<p class="result__number">1 098 909 Р</p>
+				<hr class="result__hr">
+				<p class="result__text">На депозите к концу срока:</p>
+				<p class="result__number">1 098 909 Р</p>
+				<p class="result__small">На жилье накоплено за: 52 месяца</p>
+				<p class="result__small">Ежемесячный доход с суммы: 360 454 Р</p>
+				<hr class="result__hr">
+				<p class="result__button">Подробнее</p>
 			</div>
 		</div>
 		<div class="table-block">
