@@ -1,8 +1,12 @@
 package main
 
 import (
+	"log"
 	"fmt"
 	"math"
+	"net/http"
+	/*"encoding/json"*/
+	"github.com/gorilla/mux"
 )
 
 // this is a comment
@@ -14,7 +18,26 @@ func main() {
 
 	annuityPayment(creditAmount,loanRate,n)
 	differentiatedPayment(creditAmount,loanRate,n)
-	//fmt.Println(test(2,3))
+
+	r := mux.NewRouter()
+	r.HandleFunc("/", getHello).Methods(http.MethodGet)
+	r.HandleFunc("/city", getCityList).Methods(http.MethodGet)
+	log.Fatal(http.ListenAndServe(":3020", r))
+}
+
+func getHello(w http.ResponseWriter, r *http.Request) {
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte(`{"message": "get hello world"}`))
+
+}
+func getCityList(w http.ResponseWriter, r *http.Request) {
+
+	w.Header().Set("Content-Type", "application/json")
+	w.WriteHeader(http.StatusOK)
+	w.Write([]byte(`{"message": "get city list called"}`))
+
 }
 
 func annuityPayment(creditAmount int,loanRate float64, n int) float64 {
@@ -68,9 +91,6 @@ func differentiatedPayment(creditAmount int,loanRate float64, n int) float64 {
 
 }
 
-func test(a float64, b float64) float64{
-	return Round(a/b,3)
-}
 
 func Round(x float64, prec int) float64 {
 	var rounder float64
@@ -84,4 +104,43 @@ func Round(x float64, prec int) float64 {
 	}
 
 	return rounder / pow
+}
+
+/*
+	Structures
+*/
+
+type Settings struct {
+	City int `json:"city"`
+	MortgageInterest float32 `json:"mortgageInterest"`
+	DepositInterest float32 `json:"depositInterest"`
+	FirstPay string `json:"firstPay"`
+	RoomCount int `json:"roomCount"`
+	newFlat bool `json:"newFlat"`
+	firstBuy bool `json:"firstBuy"`
+	ownFlat bool `json:"ownFlat"`
+
+	RentPayment int `json:"RentPayment"`
+	Repair int `json:"repair"`
+	Inflation int `json:"inflation"`
+	Options *[]Option `json:"options"`
+}
+
+type Option struct {
+	Time int `json:"time"`
+	AnnuitySum int `json:"annuitySum"`
+	DifferentiatedySum int `json:"differentiatedySum"`
+	DepositSum int `json:"depositSum"`
+	MonthlyIncome int `json:"monthlyIncome"`
+	Calculation []*monthlyCalculation `json:"calculation"`
+}
+
+type monthlyCalculation struct {
+	Month int `json:"month"`
+	Annuity int `json:"annuity"`
+	Differentiated int `json:"differentiated"`
+	RentIncome int `json:"rentIncome"`
+	RentConsumption int `json:"rentConsumption"`
+	Deposit int `json:"deposit"`
+	Addition int `json:"addition"`
 }
