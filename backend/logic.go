@@ -5,13 +5,32 @@ import (
 	"fmt"
 	"math"
 	"net/http"
-	/*"encoding/json"*/
+	"encoding/json"
 	"github.com/gorilla/mux"
 )
 
 // this is a comment
+var settings Settings
+var cityList [3]string 
+
 
 func main() {
+	cityList = [3]string{"Ростов","Москва","Питер"}
+	settings = Settings{
+		City: 10,
+		MortgageInterest: 9.5,
+		DepositInterest: 6,
+		FirstPay: 1000000,
+		RoomCount: 2,
+		newFlat: true,
+		firstBuy: true,
+		ownFlat: true,
+
+		RentPayment: 18000,
+		Repair: 1000000,
+		Inflation: 15, 
+	}
+
 	var creditAmount int = 2300000 
 	var loanRate float64 = 12
 	var n int = 60
@@ -32,11 +51,12 @@ func getHello(w http.ResponseWriter, r *http.Request) {
 	w.Write([]byte(`{"message": "get hello world"}`))
 
 }
+
 func getCityList(w http.ResponseWriter, r *http.Request) {
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(http.StatusOK)
-	w.Write([]byte(`{"message": "get city list called"}`))
+	json.NewEncoder(w).Encode(settings.City)
 
 }
 
@@ -114,7 +134,7 @@ type Settings struct {
 	City int `json:"city"`
 	MortgageInterest float32 `json:"mortgageInterest"`
 	DepositInterest float32 `json:"depositInterest"`
-	FirstPay string `json:"firstPay"`
+	FirstPay int `json:"firstPay"`
 	RoomCount int `json:"roomCount"`
 	newFlat bool `json:"newFlat"`
 	firstBuy bool `json:"firstBuy"`
